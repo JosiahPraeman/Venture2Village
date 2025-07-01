@@ -1,1 +1,4 @@
-venture2village.com
+Type: CNAME
+Host: www
+Points to: josiahpraeman.github.io. 
+TTL: 600 seconds 
