@@ -229,6 +229,24 @@
             .contact-section .card:hover {
                 transform: translateY(-5px);
             }
+
+            /* Add to your existing CSS */
+            .event-card {
+                width: 100%;
+                overflow: hidden; /* Prevent any overflow */
+            }
+
+            .event-image {
+                width: 100%; /* Ensure image fills its container */
+                height: 200px;
+                object-fit: cover;
+                display: block; /* Remove any extra space below image */
+            }
+
+            .img-fluid {
+                max-width: 100%; /* Bootstrap class to make images responsive */
+                height: auto; /* Maintain aspect ratio */
+            }
             
             @media (max-width: 992px) {
                 .project-row {
@@ -419,7 +437,9 @@
                         <div class="col-lg-7">
                             <div class="events-container">
                                 <div class="event-card">
-                                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="ACMI Workshop" class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                                        alt="ACMI Workshop" 
+                                        class="event-image img-fluid">
                                     <div class="event-content">
                                         <h4 class="event-title">ACMI Workshop</h4>
                                         <p class="event-description">Join our interactive workshop where community members gather to discuss innovative solutions for local challenges. Learn collaborative problem-solving techniques in an intimate setting.</p>
@@ -428,7 +448,9 @@
                                 </div>
                                 
                                 <div class="event-card">
-                                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Overseas Courses" class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                                        alt="Overseas Courses" 
+                                        class="event-image img-fluid">
                                     <div class="event-content">
                                         <h4 class="event-title">Overseas Courses</h4>
                                         <p class="event-description">Experience our transformative overseas courses designed to connect youth with communities in need. Help build sustainable solutions while gaining valuable life experiences.</p>
