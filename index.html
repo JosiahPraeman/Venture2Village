@@ -1,608 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Village2Venture connects youths with social causes" />
-        <meta name="author" content="" />
-        <title>Venture2Village</title>
-        <link rel="icon" type="image/x-icon" href="assets/VVlogo.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Bootstrap core CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            :root {
-                --primary: #4a6fa5;
-                --secondary: #6b5b95;
-                --accent: #e76f51;
-                --light: #f8f9fa;
-                --dark: #212529;
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Village2Venture connects youths with social causes" />
+    <meta name="author" content="" />
+    <title>Venture2Village</title>
+    <link rel="icon" type="image/x-icon" href="assets/VVlogo.png" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #6b5b95;
+            --accent: #e76f51;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffffff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        /* About Section */
+        .about-content {
+            padding: 80px 0;
+        }
+        
+        /* 4 Vs Section */
+        .vs-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .vs-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .vs-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vs-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .vs-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .vs-card:hover .vs-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .vs-card-content {
+            padding: 25px;
+        }
+        
+        .vs-card-content h3 {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .vs-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Partners & Events */
+        .partners-events {
+            padding: 80px 0;
+        }
+        
+        .partner-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .partner-logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-icons {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            body {
-                font-family: 'Nunito', sans-serif;
-                background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-                color: var(--dark);
+            .hero p {
+                font-size: 1.2rem;
             }
             
-            .masthead {
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 100%), url('https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: scroll;
-                background-size: cover;
-                padding-top: 10rem;
-                padding-bottom: calc(10rem - 4.5rem);
+            .section-title h2 {
+                font-size: 1.8rem;
             }
-            
-            .featured-text h1 {
-                font-weight: 700;
-                color: var(--primary);
-                text-align: center;
-                margin: 2rem 0;
-                position: relative;
-            }
-            
-            .featured-text h1::after {
-                content: '';
-                position: absolute;
-                bottom: -10px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80px;
-                height: 4px;
-                background: var(--accent);
-                border-radius: 2px;
-            }
-            
-            .projects-section {
-                padding: 5rem 0;
-            }
-            
-            .project-row {
-                margin-bottom: 3.5rem;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                transition: all 0.4s ease;
-            }
-            
-            .project-row:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            }
-            
-            .project-text {
-                padding: 3rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                height: 100%;
-                position: relative;
-                z-index: 2;
-            }
-            
-            .project-text h4 {
-                font-weight: 700;
-                margin-bottom: 1rem;
-                color: white;
-                position: relative;
-                z-index: 3;
-            }
-            
-            .project-text p {
-                color: rgba(255, 255, 255, 0.85);
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                position: relative;
-                z-index: 3;
-            }
-            
-            .v-number {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                font-size: 5rem;
-                font-weight: 900;
-                color: rgba(255, 255, 255, 0.1);
-                z-index: 1;
-            }
-            
-            .image-container {
-                position: relative;
-                overflow: hidden;
-                height: 100%;
-            }
-            
-            .image-container img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: all 0.5s ease;
-            }
-            
-            .image-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(45deg, rgba(74, 111, 165, 0.7), rgba(107, 91, 149, 0.7));
-                opacity: 0;
-                transition: opacity 0.4s ease;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                color: white;
-                padding: 2rem;
-                text-align: center;
-            }
-            
-            .image-container:hover .image-overlay {
-                opacity: 1;
-            }
-            
-            .image-container:hover img {
-                transform: scale(1.1);
-            }
-            
-            .btn-outline-light {
-                border: 2px solid white;
-                color: white;
-                font-weight: 600;
-                padding: 0.5rem 1.5rem;
-                border-radius: 30px;
-                transition: all 0.3s ease;
-                position: relative;
-                z-index: 3;
-                width: fit-content;
-            }
-            
-            .btn-outline-light:hover {
-                background: white;
-                color: var(--primary);
-                transform: scale(1.05);
-            }
-            
-            .v-1 .project-text {
-                background: linear-gradient(135deg, var(--primary), #3a5a80);
-            }
-            
-            .v-2 .project-text {
-                background: linear-gradient(135deg, var(--secondary), #564981);
-            }
-            
-            .v-3 .project-text {
-                background: linear-gradient(135deg, var(--accent), #d45b3d);
-            }
-            
-            .v-4 .project-text {
-                background: linear-gradient(135deg, #4caf50, #2e7d32);
-            }
-            
-            .stats {
-                display: flex;
-                justify-content: space-around;
-                background: white;
-                border-radius: 10px;
-                padding: 1.5rem;
-                margin-top: 2rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            }
-            
-            .stat-item {
-                text-align: center;
-            }
-            
-            .stat-item .number {
-                font-size: 2rem;
-                font-weight: 700;
-                color: var(--primary);
-                margin-bottom: 0.5rem;
-            }
-            
-            .stat-item .label {
-                color: var(--secondary);
-                font-weight: 600;
-            }
-            
-            .signup-section {
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: scroll;
-                background-size: cover;
-                padding: 7rem 0;
-            }
-            
-            .contact-section .card {
-                border-radius: 12px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
-            
-            .contact-section .card:hover {
-                transform: translateY(-5px);
-            }
-
-            /* Add to your existing CSS */
-            .event-card {
-                width: 100%;
-                overflow: hidden; /* Prevent any overflow */
-            }
-
-            .event-image {
-                width: 100%; /* Ensure image fills its container */
-                height: 200px;
-                object-fit: cover;
-                display: block; /* Remove any extra space below image */
-            }
-
-            .img-fluid {
-                max-width: 100%; /* Bootstrap class to make images responsive */
-                height: auto; /* Maintain aspect ratio */
-            }
-            
-            @media (max-width: 992px) {
-                .project-row {
-                    margin-bottom: 3rem;
-                }
-                
-                .project-text {
-                    padding: 2rem;
-                }
-                
-                .project-text h4 {
-                    font-size: 1.5rem;
-                }
-            }
-
-            .navbar-custom {
-                background-color: #87CEEB !important; /* Light blue color */
-            }
-            
-            .navbar-custom .navbar-brand,
-            .navbar-custom .nav-link {
-                color: #FFFFFF !important; /* White text */
-                font-weight: bold !important; /* Bold text */
-            }
-            
-            .navbar-custom .navbar-toggler {
-                border-color: #FFFFFF; /* White border for toggle button */
-            }
-            
-            .navbar-custom .navbar-toggler-icon {
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            }
-            
-            @media (max-width: 768px) {
-                .stats {
-                    flex-direction: column;
-                    gap: 1.5rem;
-                }
-            }
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
-                <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand" href="#page-top">Village2Venture</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#projects">4 Vs</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">Village2Venture</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Connecting youths with social causes - one skill at a time</h2>
-                        <a class="btn btn-primary" href="#projects">Explore Our 4 Vs</a>
-                    </div>
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                <span style="color: #4a6fa5;">Village</span><span style="color: #e76f51;">2</span><span style="color: #6b5b95;">Venture</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vs">4 Vs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#partners-events">Partners & Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1>Village2Venture</h1>
+                    <p class="lead">Connecting youths with social causes - one skill at a time</p>
+                    <a href="#vs" class="btn btn-primary btn-lg mt-3">Explore Our 4 Vs</a>
                 </div>
             </div>
-        </header>
-        
-        <!-- 4 Vs Banner -->
-        <section id="about" class="py-5">
-            <div class="container">
-                <div class="featured-text text-center text-lg-left">
-                    <h1>Our 4 Vs</h1>
-                    <div class="container-fluid p-0 mt-4 mb-5">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="4 Vs Banner" class="img-fluid rounded shadow" style="width: 100%; height: 300px; object-fit: cover;">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50">
-                                <div class="text-white text-center">
-                                    <h2 class="display-4 fw-bold">Voice • Vocation • Vision • Venture</h2>
-                                    <p class="lead">Our pillars for youth empowerment and social change</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="lead">Village2Venture is dedicated to connecting rural communities with global opportunities through technology, education, and sustainable business practices.</p>
+                    <p>We believe in empowering individuals and organizations to create positive change in their communities and beyond. Our unique approach focuses on the 4 Vs: Voice, Vocation, Vision, and Venture.</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- 4 Vs Projects Section -->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
+        </div>
+    </section>
+    
+    <!-- 4 Vs Section -->
+    <section id="vs" class="vs-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our 4 Vs</h2>
+                <p>Our pillars for youth empowerment and social change</p>
+            </div>
+            
+            <div class="row">
                 <!-- V1: Voice for Individuals -->
-                <div class="row gx-0 project-row v-1">
-                    <div class="col-lg-6">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Empowering Individuals">
-                            <div class="image-overlay">
-                                <h3>Amplifying Individual Voices</h3>
-                                <p>We provide platforms for personal expression and empowerment</p>
-                                <button class="btn btn-outline-light mt-3">Read Stories</button>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="vs-card">
+                        <div class="vs-card-img">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Empowering Individuals">
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="project-text">
-                            <span class="v-number">01</span>
-                            <h4>Voice for Individuals</h4>
-                            <p>We believe every person has a unique story worth sharing. Our platform empowers individuals to find their voice, share their experiences, and connect with supportive communities that foster personal growth and self-expression.</p>
-                            <button class="btn btn-outline-light">Learn More</button>
+                        <div class="vs-card-content">
+                            <h3><span class="vs-number">1</span>Voice for Individuals</h3>
+                            <p>We believe every person has a unique story worth sharing. Our platform empowers individuals to find their voice, share their experiences, and connect with supportive communities.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- V2: Vocation for Youth -->
-                <div class="row gx-0 project-row v-2">
-                    <div class="col-lg-6 order-lg-last">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Youth Development">
-                            <div class="image-overlay">
-                                <h3>Building Future Leaders</h3>
-                                <p>We equip young people with skills for tomorrow's challenges</p>
-                                <button class="btn btn-outline-light mt-3">Explore Programs</button>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="vs-card">
+                        <div class="vs-card-img">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Youth Development">
                         </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="project-text">
-                            <span class="v-number">02</span>
-                            <h4>Vocation for Youth</h4>
-                            <p>Our youth programs focus on developing practical skills, fostering creativity, and building career pathways. We provide mentorship, training, and opportunities that help young people discover their passions and prepare for meaningful careers.</p>
-                            <button class="btn btn-outline-light">Discover Opportunities</button>
+                        <div class="vs-card-content">
+                            <h3><span class="vs-number">2</span>Vocation for Youth</h3>
+                            <p>Our youth programs focus on developing practical skills, fostering creativity, and building career pathways. We provide mentorship, training, and opportunities.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Discover Opportunities</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- V3: Voice of Organization -->
-                <div class="row gx-0 project-row v-3">
-                    <div class="col-lg-6">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Organizational Impact">
-                            <div class="image-overlay">
-                                <h3>Organizational Excellence</h3>
-                                <p>We help organizations amplify their impact and reach</p>
-                                <button class="btn btn-outline-light mt-3">See Success Stories</button>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="vs-card">
+                        <div class="vs-card-img">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Organizational Impact">
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="project-text">
-                            <span class="v-number">03</span>
-                            <h4>Voice of Organization</h4>
-                            <p>We partner with organizations to amplify their impact, streamline communication, and enhance their community presence. Our solutions help mission-driven organizations reach wider audiences and create meaningful change.</p>
-                            <button class="btn btn-outline-light">Partner With Us</button>
+                        <div class="vs-card-content">
+                            <h3><span class="vs-number">3</span>Voice of Organization</h3>
+                            <p>We partner with organizations to amplify their impact, streamline communication, and enhance their community presence. Our solutions help mission-driven organizations.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Partner With Us</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- V4: Vision for a Better World -->
-                <div class="row gx-0 project-row v-4">
-                    <div class="col-lg-6 order-lg-last">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Global Vision">
-                            <div class="image-overlay">
-                                <h3>Creating Positive Change</h3>
-                                <p>Join us in building a more equitable and sustainable future</p>
-                                <button class="btn btn-outline-light mt-3">Join Our Movement</button>
-                            </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="vs-card">
+                        <div class="vs-card-img">
+                            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Global Vision">
+                        </div>
+                        <div class="vs-card-content">
+                            <h3><span class="vs-number">4</span>Vision for a Better World</h3>
+                            <p>Our ultimate goal is to contribute to a more just, sustainable, and compassionate world. Through innovative programs and collaborative initiatives.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">See Our Vision</a>
                         </div>
                     </div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="project-text">
-                            <span class="v-number">04</span>
-                            <h4>Vision for a Better World</h4>
-                            <p>Our ultimate goal is to contribute to a more just, sustainable, and compassionate world. Through innovative programs and collaborative initiatives, we work towards creating positive systemic change on a global scale.</p>
-                            <button class="btn btn-outline-light">See Our Vision</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Partners & Events Section -->
+    <section id="partners-events" class="partners-events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners & Upcoming Events</h2>
+                <p>Collaborating for greater impact</p>
+            </div>
+            
+            <div class="row">
+                <!-- Partner Section -->
+                <div class="col-lg-5">
+                    <div class="partner-card">
+                        <h3 class="mb-4">Our Partner</h3>
+                        <img src="https://media.licdn.com/dms/image/C560BAQGhjGvEnFrXnQ/company-logo_200_200/0/1660881932023/nus_innovation_with_societal_impact_logo?e=2147483647&v=beta&t=0aJZC_Tg40Web7WQoXzPXYY2P4d-FlGlb_MHCqVvt4g" alt="NUS Logo" class="partner-logo img-fluid">
+                        <div class="partner-description">
+                            <p><strong>NUSISI: Innovation with Societal Impact</strong></p>
+                            <p>We are proud to partner with NUSISI to drive innovation that creates meaningful societal change. Together, we're developing solutions that empower communities and transform lives.</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Impact Statistics -->
-                <!-- Partner and Events Section -->
-                <div id="partner-events" class="partners-events-section">
-                    <div class="section-title">
-                        <h2>Our Partners & Upcoming Events</h2>
-                        <p>Collaborating for greater impact</p>
+                <!-- Events Section -->
+                <div class="col-lg-7">
+                    <h3 class="mb-4">Upcoming Events</h3>
+                    
+                    <div class="event-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="ACMI Workshop">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="event-content">
+                                    <h4>ACMI Workshop</h4>
+                                    <p>Join our interactive workshop where community members gather to discuss innovative solutions for local challenges.</p>
+                                    <a href="#" class="btn btn-primary mt-2">Register Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="row">
-                        <!-- Our Partner -->
-                        <div class="col-lg-5">
-                            <div class="partner-card">
-                                <h3 class="partner-title">Our Partner</h3>
-                                <img src="https://media.licdn.com/dms/image/C560BAQGhjGvEnFrXnQ/company-logo_200_200/0/1660881932023/nus_innovation_with_societal_impact_logo?e=2147483647&v=beta&t=0aJZC_Tg40Web7WQoXzPXYY2P4d-FlGlb_MHCqVvt4g" alt="NUS Logo" class="partner-logo">
-                                <div class="partner-description">
-                                    <p><strong>NUSISI: Innovation with Societal Impact</strong></p>
-                                    <p>We are proud to partner with NUSISI to drive innovation that creates meaningful societal change. Together, we're developing solutions that empower communities and transform lives.</p>
+                    <div class="event-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Overseas Courses">
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Upcoming Events -->
-                        <div class="col-lg-7">
-                            <div class="events-container">
-                                <div class="event-card">
-                                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-                                        alt="ACMI Workshop" 
-                                        class="event-image img-fluid">
-                                    <div class="event-content">
-                                        <h4 class="event-title">ACMI Workshop</h4>
-                                        <p class="event-description">Join our interactive workshop where community members gather to discuss innovative solutions for local challenges. Learn collaborative problem-solving techniques in an intimate setting.</p>
-                                        <button class="btn btn-primary mt-2">Register Now</button>
-                                    </div>
-                                </div>
-                                
-                                <div class="event-card">
-                                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-                                        alt="Overseas Courses" 
-                                        class="event-image img-fluid">
-                                    <div class="event-content">
-                                        <h4 class="event-title">Overseas Courses</h4>
-                                        <p class="event-description">Experience our transformative overseas courses designed to connect youth with communities in need. Help build sustainable solutions while gaining valuable life experiences.</p>
-                                        <button class="btn btn-primary mt-2">Learn More</button>
-                                    </div>
+                            <div class="col-md-8">
+                                <div class="event-content">
+                                    <h4>Overseas Courses</h4>
+                                    <p>Experience our transformative overseas courses designed to connect youth with communities in need.</p>
+                                    <a href="#" class="btn btn-primary mt-2">Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Signup-->
-        <section class="signup-section" id="signup">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                        <form class="form-signup" id="contactForm">
-                            <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." /></div>
-                                <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Notify Me!</button></div>
-                            </div>
-                        </form>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Contact Us</h2>
+                <p>Get in touch with us to learn more about our initiatives</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>venture2village@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p>+65 9662 3661</p>
+                        <p>+65 8717 5166</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>Singapore</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact-->
-        <section class="contact-section bg-black">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50"><a href="#!">venture2village@gmail.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">+65 9662 3661</div>
-                                <div class="small text-black-50">+65 8717 5166</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marker-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Location</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Singapore</div>
-                            </div>
+            
+            <!-- Newsletter Signup -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card newsletter-card">
+                        <div class="card-body text-center py-4">
+                            <i class="far fa-paper-plane fa-2x mb-3 text-primary"></i>
+                            <h3 class="card-title mb-3">Subscribe to receive updates!</h3>
+                            <form class="form-signup">
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Enter your email address" aria-label="Email">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="social d-flex justify-content-center mt-5">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-linkedin-in fa-2x"></i></a>
-                </div>
             </div>
-        </section>
-        
-        <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50">
-            <div class="container px-4 px-lg-5">
-                Copyright &copy; Village2Venture 2025
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-        </footer>
+            <p>Copyright &copy; Village2Venture 2025</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow');
+            } else {
+                navbar.classList.remove('shadow');
+            }
+        });
         
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            // Add interactive animations
-            document.addEventListener('DOMContentLoaded', function() {
-                const projectRows = document.querySelectorAll('.project-row');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                projectRows.forEach(row => {
-                    // Add animation on scroll
-                    row.style.opacity = '0';
-                    row.style.transform = 'translateY(30px)';
-                    row.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                // Animate when in viewport
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, { threshold: 0.2 });
-                
-                projectRows.forEach(row => {
-                    observer.observe(row);
-                });
-                
-                // Add button hover effects
-                const buttons = document.querySelectorAll('.btn-outline-light, .btn-primary');
-                buttons.forEach(button => {
-                    button.addEventListener('mouseenter', function() {
-                        this.style.transform = 'scale(1.05)';
-                    });
-                    
-                    button.addEventListener('mouseleave', function() {
-                        this.style.transform = 'scale(1)';
-                    });
-                });
-                
-                // Form submission
-                const contactForm = document.getElementById('contactForm');
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = document.getElementById('emailAddress').value;
-                    if(email) {
-                        alert(`Thank you for subscribing! We'll send updates to ${email}`);
-                        contactForm.reset();
-                    }
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
                 });
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
